@@ -1,7 +1,31 @@
-h1 {
+/* .game {
+  display: flex;
+  justify-content: center;
+  font-family: Helvetica;
+
+} */
+#game {
+  display: flex;
+  justify-content: center;
+
+}
+
+button {
+  margin-top: 50px;
+  width: 50%;
   text-align: center;
-  margin-top: 1.5em;
-  font-family: 'Bangers', cursive;
-  font-size: 70px;
-  color: #5f6f77;
+  font-size: 30px;
+  font-family: Helvetica;
+  color: #bae0d6;
+  padding: 40px;
+  font-weight: 700;
+  background: url('holographic-universe.png');
+}
+
+span:hover {
+  background-color: #ef8b5f;
+}
+
+span {
+  padding: 5px;
 }

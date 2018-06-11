@@ -25,6 +25,7 @@ class YourShip{
       alert("Hey, " + this.name + "! Work on you're aim!")
     }
   }
+
 }
 const hero = new YourShip("USS Schwarzenegger")
 
@@ -77,39 +78,63 @@ class Game {
       alert("Look out, Han Solo, there's a new sharp shooter in town!! Congrats, " + hero.name + "! You defeated an " + alien.name)
     } else {
       console.log("alien has " + alien.hull + " hitpoints.");
-      alert("Don't stop now!! This alien scum still has " + alien.hull + " hitpoint(s).")
+      alert("Uh Oh!! This alien scum still has " + alien.hull + " hitpoint(s).")
     }
   }
 }
 const game = new Game ("")
 
-// hero.attack(alien)
-// alien.attack(hero)
-// game.checkHeroWin(hero)
-// game.checkAlienWin(alien)
 
 //PROMPTS AND ALERTS
+function myGame(){
+
 alert("SPACE BATTLE!")
-//ask user if they want to play. user answers yes or no.
+// ask user if they want to play. user answers yes or no.
 const firstAnswer = prompt("Wanna fight some aliens?", "yes/no")
   //if user answers yes
   if (firstAnswer == "yes") {
     //alert user, and continue
     alert("Niiiice. Hop in this spaceship, here comes the first alien!")
     console.log("user input: yes");
-  //if user answers anything else, quit game.
+  //ISSUE!!!! if user answers anything else, game needs to quit
   } else {
     alert("It'd be cooler if did. Bye!")
     console.log("user quit");
   }
 
 //////////////////////////////////////////////
-// This section needs to loop until user or alien hitpoints are <= 0
-  alert("Ready, Aim, FIIIIRRREEE!")
-  hero.attack(alien)
-  alert("Oops, now you're being attacked...")
-  alien.attack(hero)
-  alert("Let's see how you came out of that battle:")
-  game.checkHeroWin(hero)
-  alert("But what about the bad guys???")
-  game.checkAlienWin(alien)
+//start battle
+//loop the attacks until alien or hero have <=0 hull
+//check win status after each battle
+//if either alien or hero reach 0 hull, game over and loop breaks
+let battle = () => {
+  while (battle) {
+    alert("Ready, Aim, FIIIIRRREEE!")
+    hero.attack(alien)
+    alert("Oops, now you're being attacked...")
+    alien.attack(hero)
+    alert("Let's see how you came out of that battle:")
+    game.checkHeroWin(hero)
+    alert("But what about the bad guys???")
+    game.checkAlienWin(alien)
+  if (hero.hull <= 0 || alien.hull <= 0) {
+      battle = false
+      console.log("game over");
+      alert("Game Over:" + hero.name + " hitpoints = " + hero.hull + ". " + alien.name + " hitpoints = " + alien.hull + ".")
+    }
+  }
+}
+battle()
+}
+
+    // if (hero.hull || alien.hull <= 0) {
+    //   console.log("game over");
+    //   alert("Game Over:" + hero.name + " hitpoints = " + hero.hull + ". " + alien.name + " hitpoints = " + alien.hull + ".")
+// alert("Ready, Aim, FIIIIRRREEE!")
+// hero.attack(alien)
+// alert("Oops, now you're being attacked...")
+// alien.attack(hero)
+// alert("Let's see how you came out of that battle:")
+// game.checkHeroWin(hero)
+// alert("But what about the bad guys???")
+// game.checkAlienWin(alien)
