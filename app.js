@@ -67,7 +67,7 @@ class Game {
   //make a method inside the object to checkWin of hero
   checkAlienWin(alien) {
     if (alien.hull <= 0) {
-      console.log("Look out, Han Solo, we've got a new sharp shooter in space town!! Congrats, " + hero.name + "! You defeated an " + alien.name);
+      console.log("Look out, Han Solo, there's a new sharp shooter in town!! Congrats, " + hero.name + "! You defeated an " + alien.name);
     } else {
       console.log("Don't stop now!! This alien scum still has " + alien.hull + " hitpoint(s).");
     }
@@ -91,7 +91,7 @@ const firstAnswer = prompt("Wanna fight some aliens?", "yes/no")
     console.log("user input: yes");
   //if user answers anything else, quit game.
   } else {
-    alert("It'd be cooler if you said yes... Bye!")
+    alert("It'd be cooler if did. Bye!")
     console.log(null);
   }
 
