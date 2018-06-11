@@ -18,9 +18,11 @@ class YourShip{
     //using firepower, deduct 5 hitpoints from enemy.hull
     if (getRandomAccuracy <= this.accuracy) {
       alien.hull-=this.firepower
-      console.log("Holy Shit! You just hit an " + alien.name + ".");
+      console.log("user hit alien");
+      alert("OMG! You just hit an " + alien.name + ".")
     } else {
-      console.log("Hey, " + this.name + "! Work on you're aim!" );
+      console.log("user missed alien");
+      alert("Hey, " + this.name + "! Work on you're aim!")
     }
   }
 }
@@ -41,8 +43,10 @@ class EnemyShip{
   attack(hero){
     if (getRandomAccuracy <= this.accuracy) {
       hero.hull-=this.firepower
+      console.log("alien hit user");
       alert("OUCH! You've been hit by an " + alien.name + ".");
     } else {
+      console.log("alien missed user");
       alert("Yoooo, that was a close one! An " + this.name + " shot at you.");
     }
   }
@@ -59,17 +63,21 @@ class Game {
   //make a method inside the object to checkWin of hero
   checkHeroWin(hero) {
     if (hero.hull <= 0) {
-      console.log("Sorry " + hero.name + ". Your hitpoints are " + hero.hull + " Which means you've been blown into spacedust. Better luck next time!");
+      console.log("user has " + hero.hull + " hitpoints. user lost.");
+      alert("Sorry " + hero.name + ". Your hitpoints are " + hero.hull + " Which means you've been blown into spacedust. Better luck next time!")
     } else {
-      console.log("You still have " + hero.hull + " hitpoint(s).");
+      console.log("user has " + hero.hull + " hitpoints.");
+      alert("You made it! You still have " + hero.hull + " hitpoint(s).")
     }
   }
   //make a method inside the object to checkWin of hero
   checkAlienWin(alien) {
     if (alien.hull <= 0) {
-      console.log("Look out, Han Solo, there's a new sharp shooter in town!! Congrats, " + hero.name + "! You defeated an " + alien.name);
+      console.log("alien has " + alien.hull + " hitpoints. user won.");
+      alert("Look out, Han Solo, there's a new sharp shooter in town!! Congrats, " + hero.name + "! You defeated an " + alien.name)
     } else {
-      console.log("Don't stop now!! This alien scum still has " + alien.hull + " hitpoint(s).");
+      console.log("alien has " + alien.hull + " hitpoints.");
+      alert("Don't stop now!! This alien scum still has " + alien.hull + " hitpoint(s).")
     }
   }
 }
@@ -92,9 +100,11 @@ const firstAnswer = prompt("Wanna fight some aliens?", "yes/no")
   //if user answers anything else, quit game.
   } else {
     alert("It'd be cooler if did. Bye!")
-    console.log(null);
+    console.log("user quit");
   }
 
+//////////////////////////////////////////////
+// This section needs to loop until user or alien hitpoints are <= 0
   alert("Ready, Aim, FIIIIRRREEE!")
   hero.attack(alien)
   alert("Oops, now you're being attacked...")
@@ -103,6 +113,3 @@ const firstAnswer = prompt("Wanna fight some aliens?", "yes/no")
   game.checkHeroWin(hero)
   alert("But what about the bad guys???")
   game.checkAlienWin(alien)
-
-// keep playing until hero or alien has 0 or less hitpoints.
-// ISSUE: hitpoint are resetting each round...
